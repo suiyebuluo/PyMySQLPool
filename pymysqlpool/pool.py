@@ -176,7 +176,7 @@ class Pool(object):
             timeout = now
             if isinstance(self.ping_check, int):
                 timeout = timeout - self.ping_check
-            if not hasattr(c, '__ping_check_timestamp'):
+            if not hasattr(c, '_Pool__ping_check_timestamp'):
                 c.__ping_check_timestamp = now
             try:
                 if c.__ping_check_timestamp < timeout:

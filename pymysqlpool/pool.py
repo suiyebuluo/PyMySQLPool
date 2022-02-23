@@ -176,11 +176,11 @@ class Pool(object):
             timeout = now
             if isinstance(self.ping_check, int):
                 timeout = timeout - self.ping_check
-            if not hasattr(c, '_Pool__ping_check_timestamp'):
-                c.__ping_check_timestamp = now
+            if not hasattr(c, '_ping_check_timestamp'):
+                c._ping_check_timestamp = now
             try:
-                if c.__ping_check_timestamp < timeout:
-                    c.__ping_check_timestamp = now
+                if c._ping_check_timestamp < timeout:
+                    c._ping_check_timestamp = now
                     c.ping()
             except:
                 self.current_size -= 1
